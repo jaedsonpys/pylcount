@@ -1,6 +1,7 @@
 import os
 
 import argeasy
+import tabulate
 
 from .__init__ import __version__
 from .counter import count_directory
@@ -34,3 +35,5 @@ def main() -> int:
             result = count_directory(filepath, ignore=ignore_list, ext=ext_list)
         elif os.path.isfile(filepath):
             result = count_file(filepath)
+
+        print(tabulate.tabulate(result, headers=['File', 'Lines'], tablefmt='pretty'))
