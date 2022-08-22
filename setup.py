@@ -17,5 +17,10 @@ setup(
     url='https://github.com/jaedsonpys/pylcount',
     license='MIT',
     keywords=['line', 'counter', 'count', 'file'],
-    platforms=['any']
+    platforms=['any'],
+    entry_points={
+        'console_scripts': [
+            'pylcount = pylcount.__main__:main'
+        ]
+    }
 )
