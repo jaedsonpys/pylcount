@@ -4,6 +4,14 @@ import pathlib
 from typing import List, Tuple
 
 
+def check_ignore(path: str, ignore_list: list) -> bool:
+    for i in ignore_list:
+        if path.startswith(i):
+            return True
+
+    return False
+
+
 def count_directory(path: str, ignore: list = [], ext: list = []) -> List[Tuple[str]]:
     counted_files = []
 
@@ -11,7 +19,7 @@ def count_directory(path: str, ignore: list = [], ext: list = []) -> List[Tuple[
         for file in files:
             filepath = os.path.join(root, file)
 
-            if filepath not in ignore:
+            if not check_ignore(filepath, ignore):
                 if ext:
                     file_ext = pathlib.Path(filepath).suffix
                     if file_ext not in ext:
