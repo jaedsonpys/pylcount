@@ -24,7 +24,10 @@ def count_directory(path: str, ignore: list = [], ext: list = []) -> List[Tuple[
 
 
 def count_file(path: str) -> List[Tuple[str]]:
-    with open(path, 'r') as reader:
-        file_lines = len(reader.readlines())
-    
+    try:
+        with open(path, 'r') as reader:
+            file_lines = len(reader.readlines())
+    except UnicodeDecodeError:
+        return []
+
     return [(path, str(file_lines))]
