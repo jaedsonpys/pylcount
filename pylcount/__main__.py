@@ -36,4 +36,10 @@ def main() -> int:
         elif os.path.isfile(filepath):
             result = count_file(filepath)
 
-        print(tabulate.tabulate(result, headers=['File', 'Lines'], tablefmt='pretty'))
+        if result:
+            print(tabulate.tabulate(result, headers=['File', 'Lines'], tablefmt='pretty'))
+        else:
+            print('\033[31merror: this file cannot be counted\033[m')
+            return 1
+
+        return 0
