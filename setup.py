@@ -18,6 +18,7 @@ setup(
     license='MIT',
     keywords=['line', 'counter', 'count', 'file'],
     platforms=['any'],
+    install_requires=['tabulate==0.8.10', 'argeasy==2.0.0'],
     entry_points={
         'console_scripts': [
             'pylcount = pylcount.__main__:main'
