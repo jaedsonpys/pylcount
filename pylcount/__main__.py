@@ -35,6 +35,9 @@ def main() -> int:
             result = count_directory(filepath, ignore=ignore_list, ext=ext_list)
         elif os.path.isfile(filepath):
             result = count_file(filepath)
+        else:
+            print('\033[31merror: the specified path is not a known directory or file.\033[m')
+            return 1
 
         if result:
             print(tabulate.tabulate(result, headers=['File', 'Lines'], tablefmt='orgtbl'))
