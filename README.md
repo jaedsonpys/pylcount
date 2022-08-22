@@ -29,3 +29,7 @@ pylcount count ./pylcount --ignore ./venv --ext .py .md
 ```
 
 In the above command, we are ignoring the `venv` directory and only getting the files with the `.py` and `.md` extensions.
+
+## License
+
+This project uses the `MIT License`, [see the LICENSE](https://github.com/jaedsonpys/pylcount/blob/master/LICENSE) file in the root of the project for more information.
