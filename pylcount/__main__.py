@@ -1,6 +1,9 @@
+import os
+
 import argeasy
 
 from .__init__ import __version__
+from .counter import counter
 
 
 def main() -> int:
@@ -18,3 +21,13 @@ def main() -> int:
 
     parser.add_flag('--ext', 'Count lines with specific extensions', action='append')
     parser.add_flag('--ignore', 'Skip such files', action='append')
+
+    args = parser.parse()
+
+    if args.count:
+        filepath = args.count
+        ignore_list = args.ignore or []
+        ext_list = args.ext or []
+
+        if os.path.isdir(filepath):
+            counter(filepath, ignore=ignore_list, ext=ext_list)
