@@ -4,7 +4,7 @@ import pathlib
 from typing import List, Tuple
 
 
-def counter(path: str, ignore: list = [], ext: list = []) -> List[Tuple]:
+def count_directory(path: str, ignore: list = [], ext: list = []) -> List[Tuple]:
     counted_files = []
 
     for root, dirs, files in os.walk(path):
