@@ -23,3 +23,10 @@ def count_directory(path: str, ignore: list = [], ext: list = []) -> List[Tuple]
                 counted_files.append((filepath, file_lines))
     
     return counted_files
+
+
+def count_file(path: str) -> Tuple[str, int]:
+    with open(path, 'r') as reader:
+        file_lines = len(reader.readlines())
+    
+    return path, file_lines
