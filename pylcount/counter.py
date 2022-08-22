@@ -4,7 +4,7 @@ import pathlib
 from typing import List, Tuple
 
 
-def count_directory(path: str, ignore: list = [], ext: list = []) -> List[Tuple]:
+def count_directory(path: str, ignore: list = [], ext: list = []) -> List[Tuple[str]]:
     counted_files = []
 
     for root, dirs, files in os.walk(path):
@@ -20,13 +20,13 @@ def count_directory(path: str, ignore: list = [], ext: list = []) -> List[Tuple]
                 with open(filepath, 'r') as reader:
                     file_lines = len(reader.readlines())
 
-                counted_files.append((filepath, file_lines))
+                counted_files.append((filepath, str(file_lines)))
     
     return counted_files
 
 
-def count_file(path: str) -> Tuple[str, int]:
+def count_file(path: str) -> Tuple[str]:
     with open(path, 'r') as reader:
         file_lines = len(reader.readlines())
     
-    return path, file_lines
+    return path, str(file_lines)
