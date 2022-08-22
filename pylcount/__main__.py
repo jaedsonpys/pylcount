@@ -37,7 +37,7 @@ def main() -> int:
             result = count_file(filepath)
 
         if result:
-            print(tabulate.tabulate(result, headers=['File', 'Lines'], tablefmt='pretty'))
+            print(tabulate.tabulate(result, headers=['File', 'Lines'], tablefmt='orgtbl'))
         else:
             print('\033[31merror: this file cannot be counted\033[m')
             return 1
