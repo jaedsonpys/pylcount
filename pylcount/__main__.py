@@ -8,6 +8,15 @@ from .counter import count_directory
 from .counter import count_file
 
 
+def get_total_lines(result: list) -> int:
+    total_lines = 0
+
+    for path, lines in result:
+        total_lines += int(lines)
+
+    return total_lines
+
+
 def main() -> int:
     parser = argeasy.ArgEasy(
         name='pylcount',
@@ -44,5 +53,8 @@ def main() -> int:
         else:
             print('\033[31merror: this file cannot be counted\033[m')
             return 1
+
+        total_lines = get_total_lines(result)
+        print(f'\nTotal number of lines: {total_lines}')
 
         return 0
