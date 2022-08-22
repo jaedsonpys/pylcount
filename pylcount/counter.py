@@ -17,11 +17,9 @@ def count_directory(path: str, ignore: list = [], ext: list = []) -> List[Tuple[
                     if file_ext not in ext:
                         continue
 
-                with open(filepath, 'r') as reader:
-                    file_lines = len(reader.readlines())
+                result = count_file(filepath)
+                counted_files.extend(result)
 
-                counted_files.append((filepath, str(file_lines)))
-    
     return counted_files
 
 
